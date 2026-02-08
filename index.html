@@ -1,0 +1,257 @@
+Notepad++ v8.9.1 regression fixes, bug-fixes & new improvements:
+
+ 1. Fix EOL duplication regression when playing back old recorded macros.
+ 2. Remedy search failure for pasted text containing trailing invisible EOL character.
+ 3. Fix customized context menu regression where separator (id="0") escapes FolderName submenu.
+ 4. Fix issue where a single undo reverted multiple changes after macro execution.
+ 5. Fix visual glitch when dragging dockable dialogs on a 2nd monitor.
+ 6. Fix inconsistent automatic search mode switching (RegEx to Extended) in Find dialog.
+ 7. Fix incorrect URL parsing caused by Unicode special spaces.
+ 8. Update to Boost 1.90.0.
+ 9. Improve update themes feature: fix JavaScript.js edge case.
+10. Update javascript.js to better match javascript (embedded) in all themes.
+11. Function List: enhance for Perl & PHP; add for Nim.
+12. Fix comments and highlighting in TCL.
+13. Update perl keywords and autocomplete for 5.42.
+14. Improvement: display Find dialog status message with invisible characters warning.
+
+
+
+Get more info on
+https://notepad-plus-plus.org/downloads/v8.9.1/
+
+
+Included plugins:
+
+ 1.  NppExport v0.4
+ 2.  Converter v4.7
+ 3.  Mime Tool v3.1
+
+
+Updater (Installer only):
+
+* WinGUp (for Notepad++) v5.3.9
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chelsea‑Lea & Gino — 3 October 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --green:#5e7d6a; /* sage forest */
+      --dark:#2b2b2b;
+      --light:#faf9f7;
+      --accent:#d9cfc3; /* soft ivory */
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:var(--dark);background:var(--light);line-height:1.6}
+    a{color:var(--green);text-decoration:none}
+    header{position:sticky;top:0;background:rgba(250,249,247,.9);backdrop-filter:blur(6px);border-bottom:1px solid #eee;z-index:5}
+    .nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
+    .brand{font-family:'Playfair Display',serif;font-size:22px}
+    .nav a{margin-left:14px;font-weight:500}
+    .hero{min-height:86vh;display:grid;place-items:center;text-align:center;padding:40px 18px;background:linear-gradient(rgba(250,249,247,.6),rgba(250,249,247,.9)),url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat}
+    .hero h1{font-family:'Playfair Display',serif;font-size:56px;margin:10px 0}
+    .hero .date{font-size:18px;letter-spacing:.12em;text-transform:uppercase}
+    .badge{display:inline-block;background:white;border:1px solid #eee;border-radius:999px;padding:8px 14px;margin-top:10px}
+    .countdown{display:flex;gap:12px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+    .cd{background:white;border:1px solid #eee;border-radius:14px;padding:12px 16px;min-width:84px}
+    .cd b{display:block;font-size:26px}
+    section{padding:70px 18px}
+    .container{max-width:1000px;margin:0 auto}
+    h2{font-family:'Playfair Display',serif;font-size:36px;margin:0 0 18px}
+    .grid{display:grid;gap:20px}
+    .two{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .card{background:white;border:1px solid #eee;border-radius:18px;padding:22px}
+    .schedule li{margin:10px 0}
+    .pill{display:inline-block;background:var(--accent);padding:6px 10px;border-radius:999px;margin-right:8px;font-size:13px}
+    .map{border:0;width:100%;height:360px;border-radius:18px}
+    .cta{display:inline-block;background:var(--green);color:white;padding:12px 18px;border-radius:12px;font-weight:600}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+    .gallery img{width:100%;height:200px;object-fit:cover;border-radius:16px}
+    footer{background:white;border-top:1px solid #eee;text-align:center;padding:28px 18px}
+    small{color:#777}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">C & G</div>
+      <nav>
+        <a href="#details">Details</a>
+        <a href="#venue">Venue</a>
+        <a href="#travel">Travel</a>
+        <a href="#rsvp">RSVP</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="date">We’re getting married</div>
+      <h1>Chelsea‑Lea & Gino</h1>
+      <div class="badge">3 October 2026 • Ceremony 3:00 PM</div>
+      <div class="countdown" id="countdown">
+        <div class="cd"><b id="d">0</b>Days</div>
+        <div class="cd"><b id="h">0</b>Hours</div>
+        <div class="cd"><b id="m">0</b>Minutes</div>
+        <div class="cd"><b id="s">0</b>Seconds</div>
+      </div>
+      <p style="margin-top:16px"><a class="cta" href="#rsvp">RSVP Now</a></p>
+    </div>
+  </section>
+
+  <section id="details">
+    <div class="container">
+      <h2>The Day</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>Schedule</h3>
+          <ul class="schedule">
+            <li><span class="pill">14:30</span> Guests arrive & welcome drinks</li>
+            <li><span class="pill">15:00</span> Ceremony</li>
+            <li><span class="pill">16:00</span> Canapés & photos</li>
+            <li><span class="pill">18:00</span> Reception & dinner</li>
+            <li><span class="pill">20:00</span> Speeches</li>
+            <li><span class="pill">20:30</span> First dance & party</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Dress Code</h3>
+          <p><b>Forest Formal</b> — elegant but comfortable for an outdoor setting.</p>
+          <ul>
+            <li>Ladies: cocktail or midi dresses in neutrals, florals, champagne, beige, navy or soft pastels.</li>
+            <li>Gents: suits or chinos with blazers. Browns, tan, navy and charcoal work beautifully.</li>
+            <li>Please avoid wearing <b>green</b> (reserved for the bridal party) and white/ivory.</li>
+            <li>Bring a shawl/jacket for the evening chill.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="venue">
+    <div class="container">
+      <h2>Venue</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>Haycroft Farm, Midlands</h3>
+          <p>Our ceremony and reception will both be held at the beautiful Haycroft Farm in the KZN Midlands.</p>
+          <p><a class="cta" target="_blank" href="https://maps.google.com/?q=Haycroft%20Farm%20Midlands%20South%20Africa">Open in Google Maps</a></p>
+        </div>
+        <div class="card">
+          <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Haycroft%20Farm%20Midlands%20South%20Africa&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="travel">
+    <div class="container">
+      <h2>Travel & Accommodation</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>Nearby Stays</h3>
+          <ul>
+            <li>Midlands Saddle & Trout</li>
+            <li>Fordoun Hotel & Spa</li>
+            <li>Nottingham Road Hotel</li>
+            <li>Local Airbnbs in Nottingham Road & Curry’s Post</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Transport</h3>
+          <p>Parking is available at the venue. Please consider lift clubs or booking a shuttle/taxi if you plan on celebrating with us late into the evening.</p>
+          <p>Durban King Shaka International Airport is approximately 1.5 hours from the venue.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rsvp">
+    <div class="container">
+      <h2>RSVP</h2>
+      <div class="card">
+        <p>Please RSVP by <b>10 June 2026</b>.</p>
+        <p>Click the button below and complete our short form (.</p>
+        <p><a class="cta" target="_blank" href="https://forms.gle/N8mtkcxquaDZEoDB9">Open RSVP Form</a></p>
+        <p><small>Tip: Create a free Google Form and paste your link above.</small></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="registry">
+    <div class="container">
+      <h2>Gift Registry</h2>
+      <div class="card">
+        <p>Your presence is the greatest gift of all. If you would still like to bless us, we have created a small honeymoon/house fund.</p>
+        <ul>
+          <li>Bank details: (add here)</li>
+          <li>or online registry link: (add here)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="container">
+      <h2>Our Story</h2>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=1200&auto=format&fit=crop" alt="couple"/>
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop" alt="engagement"/>
+        <img src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?q=80&w=1200&auto=format&fit=crop" alt="ring"/>
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop" alt="kiss"/>
+      </div>
+      <p style="margin-top:10px"><small>Replace these photos with your own engagement pictures.</small></p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>Are kids invited?</h3>
+          <p>We love your little ones, however this will be an adults‑only celebration unless specified on your invitation.</p>
+          <h3>What about the weather?</h3>
+          <p>The ceremony is outdoors. If it rains, a covered area will be used.</p>
+        </div>
+        <div class="card">
+          <h3>Can I bring a plus one?</h3>
+          <p>Your invitation will indicate if a plus one has been reserved in your honour.</p>
+          <h3>Dietary requirements?</h3>
+          <p>Please include this on the RSVP form so we can accommodate you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="brand">Chelsea‑Lea & Gino</div>
+      <small>We can’t wait to celebrate with you ♡</small>
+    </div>
+  </footer>
+
+  <script>
+    // Countdown to 3 Oct 2026 15:00 local time (South Africa Standard Time)
+    const target = new Date('2026-10-03T15:00:00+02:00').getTime();
+    const dEl=document.getElementById('d'),hEl=document.getElementById('h'),mEl=document.getElementById('m'),sEl=document.getElementById('s');
+    function tick(){
+      const now=new Date().getTime();
+      let diff=Math.max(0,target-now);
+      const d=Math.floor(diff/86400000); diff%=86400000;
+      const h=Math.floor(diff/3600000); diff%=3600000;
+      const m=Math.floor(diff/60000); diff%=60000;
+      const s=Math.floor(diff/1000);
+      dEl.textContent=d;hEl.textContent=h;mEl.textContent=m;sEl.textContent=s;
+    }
+    tick(); setInterval(tick,1000);
+  </script>
+</body>
+</html>
