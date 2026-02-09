@@ -21,27 +21,45 @@
     .nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
     .brand{font-family:'Playfair Display',serif;font-size:22px}
     .nav a{margin-left:14px;font-weight:500}
-    .hero{min-height:86vh;display:grid;place-items:center;text-align:center;padding:40px 18px;background:linear-gradient(rgba(250,249,247,.6),rgba(250,249,247,.9)),url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat}
-    .hero h1{font-family:'Playfair Display',serif;font-size:56px;margin:10px 0}
-    .hero .date{font-size:18px;letter-spacing:.12em;text-transform:uppercase}
-    .badge{display:inline-block;background:white;border:1px solid #eee;border-radius:999px;padding:8px 14px;margin-top:10px}
-    .countdown{display:flex;gap:12px;justify-content:center;margin-top:18px;flex-wrap:wrap}
-    .cd{background:white;border:1px solid #eee;border-radius:14px;padding:12px 16px;min-width:84px}
+    
+    /* HERO SECTION - Using your Venue Photo */
+    .hero{
+      min-height:90vh;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:40px 18px;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
+                  url('venue.png') center/cover no-repeat;
+      color: white;
+    }
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(40px, 8vw, 72px);margin:10px 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5);}
+    .hero .date{font-size:18px;letter-spacing:.15em;text-transform:uppercase; font-weight: 500;}
+    .badge{display:inline-block;background:white;color:var(--dark); border-radius:999px;padding:8px 20px;margin-top:10px; font-weight: 600; font-size: 14px;}
+    
+    .countdown{display:flex;gap:12px;justify-content:center;margin-top:25px;flex-wrap:wrap}
+    .cd{background:rgba(255,255,255,0.9); color: var(--dark); border-radius:14px;padding:12px 16px;min-width:85px; backdrop-filter: blur(8px); box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
     .cd b{display:block;font-size:26px}
-    section{padding:70px 18px}
+    
+    section{padding:80px 18px}
     .container{max-width:1000px;margin:0 auto}
-    h2{font-family:'Playfair Display',serif;font-size:36px;margin:0 0 18px}
-    .grid{display:grid;gap:20px}
-    .two{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .card{background:white;border:1px solid #eee;border-radius:18px;padding:22px}
-    .schedule li{margin:10px 0}
-    .pill{display:inline-block;background:var(--accent);padding:6px 10px;border-radius:999px;margin-right:8px;font-size:13px}
-    .map{border:0;width:100%;height:360px;border-radius:18px}
-    .cta{display:inline-block;background:var(--green);color:white;padding:12px 18px;border-radius:12px;font-weight:600}
-    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:18px}
-    .gallery img{width:100%;height:200px;object-fit:cover;border-radius:16px}
-    footer{background:white;border-top:1px solid #eee;text-align:center;padding:28px 18px}
-    small{color:#777}
+    h2{font-family:'Playfair Display',serif;font-size:42px;margin:0 0 25px; text-align: center;}
+    .grid{display:grid;gap:25px}
+    .two{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+    .card{background:white;border:1px solid #eee;border-radius:20px;padding:30px; box-shadow: 0 5px 15px rgba(0,0,0,0.02);}
+    
+    .schedule li{margin:15px 0; list-style: none; display: flex; align-items: center;}
+    .pill{display:inline-block;background:var(--accent);padding:6px 12px;border-radius:999px;margin-right:12px;font-size:13px; font-weight: 700; color: #5a524a; min-width: 65px; text-align: center;}
+    .cta{display:inline-block;background:var(--green);color:white !important;padding:14px 28px;border-radius:12px;font-weight:600; transition: 0.3s;}
+    .cta:hover{transform: translateY(-2px); opacity: 0.95;}
+
+    /* GALLERY STYLING */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;margin-top:40px}
+    .gallery-item {height: 350px; overflow: hidden; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);}
+    .gallery img{width:100%;height:100%;object-fit:cover; transition: 0.5s;}
+    .gallery-item:hover img {transform: scale(1.05);}
+
+    footer{background:white;border-top:1px solid #eee;text-align:center;padding:40px 18px}
   </style>
 </head>
 <body>
@@ -53,12 +71,10 @@
         <a href="#details">Details</a>
         <a href="#venue">Venue</a>
         <a href="#rsvp">RSVP</a>
-        <a href="#faq">FAQ</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
     <div>
       <div class="date">We’re getting married</div>
@@ -70,159 +86,89 @@
         <div class="cd"><b id="m">0</b>Minutes</div>
         <div class="cd"><b id="s">0</b>Seconds</div>
       </div>
-      <p style="margin-top:16px"><a class="cta" href="#rsvp">RSVP Now</a></p>
+      <p style="margin-top:32px"><a class="cta" href="#rsvp">RSVP Your Attendance</a></p>
     </div>
   </section>
 
-  <!-- Our Story Section -->
-  <section id="our-story" style="padding:70px 18px; background:linear-gradient(rgba(250,249,247,.6),rgba(250,249,247,.9)), url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;">
+  <section id="our-story">
     <div class="container">
       <h2>Our Story</h2>
-      <div class="card" style="background:rgba(250,249,247,0.9);">
-        <p style="font-style:italic; text-align:center; font-size:18px;">
-          Chelsea‑Lea and Gino's story began back in 2016, when two high school students crossed paths and sparked a connection that would change their lives forever.
-          What started as friendship soon grew into something deeper, and by 2017, these high school sweethearts were officially inseparable.
-          From navigating the ups and downs of teenage years to building a life filled with shared dreams and laughter, their love has only grown stronger with time.
-          After nearly a decade together, they are so excited to finally celebrate with the people who have watched their story unfold.
-          Now they’re ready to say “I do” and start the next chapter as husband and wife.
+      <div class="card" style="border:none; text-align: center; background: transparent;">
+        <p style="font-style:italic; font-size:19px; max-width: 850px; margin: 0 auto 10px; color: #444;">
+          Chelsea‑Lea and Gino's story began back in 2016, when two high school students crossed paths...
         </p>
+        
         <div class="gallery">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop" alt="Chelsea-Lea & Gino 1">
-          <img src="https://images.unsplash.com/photo-1503264116251-35a269479413?q=80&w=600&auto=format&fit=crop" alt="Chelsea-Lea & Gino 2">
-          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop" alt="Chelsea-Lea & Gino 3">
+          <div class="gallery-item"><img src="story1.png" alt="High School Sweethearts"></div>
+          <div class="gallery-item"><img src="story2.png" alt="Our Engagement"></div>
+          <div class="gallery-item"><img src="story3.png" alt="Chelsea-Lea & Gino"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Details Section -->
-  <section id="details">
+  <section id="details" style="background-color: #f2f0ed;">
     <div class="container">
       <h2>The Day</h2>
       <div class="grid two">
         <div class="card">
-          <h3>Schedule</h3>
-          <ul class="schedule">
+          <h3 style="font-family:'Playfair Display';">The Schedule</h3>
+          <ul class="schedule" style="padding:0">
             <li><span class="pill">14:30</span> Guests arrive</li>
             <li><span class="pill">15:00</span> Ceremony</li>
             <li><span class="pill">16:00</span> Canapés & photos</li>
             <li><span class="pill">18:00</span> Reception & dinner</li>
-            <li><span class="pill">20:00</span> Speeches</li>
-            <li><span class="pill">20:30</span> First dance & party</li>
+            <li><span class="pill">20:30</span> Party starts</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Dress Code</h3>
+          <h3 style="font-family:'Playfair Display';">Dress Code</h3>
           <p><b>Forest Formal</b> — elegant but comfortable for an outdoor setting.</p>
-          <ul>
-            <li>Ladies: cocktail or midi dresses in neutrals, florals, champagne, beige, navy or soft pastels.</li>
-            <li>Gents: suits or chinos with blazers. Browns, tan, navy and charcoal work beautifully.</li>
-            <li>Please avoid wearing <b>green</b> (reserved for the bridal party) and white/ivory.</li>
-            <li>Bring a shawl/jacket for the evening chill.</li>
-          </ul>
+          <p style="font-size: 0.95em; color: #555;">
+            Ladies: cocktail or midi dresses in neutrals, florals, or soft pastels.<br><br>
+            Gents: suits or chinos with blazers. Browns, tan, and navy work beautifully.<br><br>
+            <i style="color: var(--green);">Please avoid wearing <b>green</b> or white.</i>
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Venue Section -->
   <section id="venue">
     <div class="container">
-      <h2>Venue</h2>
-      <div class="grid two">
+      <h2>The Venue</h2>
+      <div class="grid two" style="align-items: center;">
         <div class="card">
+          <img src="venue.png" alt="Haycroft Farm Forest Ceremony" style="width:100%; border-radius:12px; margin-bottom:20px; height:250px; object-fit:cover;">
           <h3>Haycroft Farm, Midlands</h3>
-          <p>Our ceremony and reception will both be held at the beautiful Haycroft Farm in the KZN Midlands.</p>
-          <p><a class="cta" target="_blank" href="https://maps.google.com/?q=Haycroft%20Farm%20Midlands%20South%20Africa">Open in Google Maps</a></p>
+          <p>Our ceremony will take place in the forest, followed by a reception on the farm.</p>
+          <p style="margin-top:20px;"><a class="cta" target="_blank" href="https://maps.google.com">View on Map</a></p>
         </div>
-        <div class="card">
-          <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Haycroft%20Farm%20Midlands%20South%20Africa&output=embed"></iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Accommodation -->
-  <section id="Accommodation">
-    <div class="container">
-      <h2>Accommodation</h2>
-      <div class="grid two">
-        <div class="card">
-          <h3>Nearby Stays</h3>
-          <ul>
-            <li>Midlands Saddle & Trout</li>
-            <li>Fordoun Hotel & Spa</li>
-            <li>Nottingham Road Hotel</li>
-            <li>Local Airbnbs in Nottingham Road & Curry’s Post</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Accommodation on the property</h3>
-          <p>Parking is available at the venue.
-            <li>Accomodation is available on the property.</li>
-            However it will be on a first come first serve basis.
-            (Please phone the venue to book your space).</p>
+        <div class="card" style="padding:10px;">
+          <iframe style="border:0; width:100%; height:380px; border-radius:12px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3480.2312683935294!2d30.0538!3d-29.3512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e8e04e9c6a7e5eb%3A0x7d6f5f5f5f5f5f5f!2sHaycroft%20Farm!5e0!3m2!1sen!2sza!4v123456789" allowfullscreen="" loading="lazy"></iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RSVP -->
-  <section id="rsvp">
+  <section id="rsvp" style="background-color: #f2f0ed; text-align: center;">
     <div class="container">
       <h2>RSVP</h2>
-      <div class="card">
-        <p>Please RSVP by <b>10 June 2026</b>.</p>
-        <p>Click the button below and complete our short form (dietary requirements and song requests welcome!).</p>
-        <p><a class="cta" target="_blank" href="https://forms.gle/N8mtkcxquaDZEoDB9">Open RSVP Form</a></p>
-        <p><small>Tip: Create a free Google Form and paste your link above.</small></p>
+      <div class="card" style="max-width: 600px; margin: 0 auto;">
+        <p>Please RSVP by <b>10 June 2026</b> using the form below.</p>
+        <p style="margin-top:25px;"><a class="cta" target="_blank" href="https://forms.gle/N8mtkcxquaDZEoDB9">Open RSVP Form</a></p>
       </div>
     </div>
   </section>
 
-  <!-- Gift Registry -->
-  <section id="registry">
-    <div class="container">
-      <h2>Gift Registry</h2>
-      <div class="card">
-        <p>Your presence is the greatest gift of all. If you would still like to bless us, we have created a small honeymoon/house fund.</p>
-        <ul>
-          <li>Bank details: (add here)</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section id="faq">
-    <div class="container">
-      <h2>FAQ</h2>
-      <div class="grid two">
-        <div class="card">
-          <h3>Are kids invited?</h3>
-          <p>We love your little ones, however this will be an adults‑only celebration unless specified on your invitation.</p>
-          <h3>What about the weather?</h3>
-          <p>The ceremony is outdoors. If it rains, a covered area will be used.</p>
-        </div>
-        <div class="card">
-          <h3>Can I bring a plus one?</h3>
-          <p>Your invitation will indicate if a plus one has been reserved in your honour.</p>
-          <h3>Dietary requirements?</h3>
-          <p>Please include this on the RSVP form so we can accommodate you.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="brand">Chelsea‑Lea & Gino</div>
-      <small>We can’t wait to celebrate with you ♡</small>
+      <p style="color: #888; margin-top: 10px; font-size: 14px;">3 October 2026 • Midlands, KZN</p>
+      <div style="font-size: 24px; color: var(--green); margin-top: 15px;">♡</div>
     </div>
   </footer>
 
-  <!-- Countdown Script -->
   <script>
     const target = new Date('2026-10-03T15:00:00+02:00').getTime();
     const dEl=document.getElementById('d'),hEl=document.getElementById('h'),mEl=document.getElementById('m'),sEl=document.getElementById('s');
@@ -239,14 +185,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
